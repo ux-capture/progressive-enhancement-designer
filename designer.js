@@ -243,4 +243,6 @@
         }
     }, false);
 
+    console.log('Use Ctrl+1 to highlight the zones. Use Ctrl+2 to animate the zones using estimated latencies.');
+
 })();
