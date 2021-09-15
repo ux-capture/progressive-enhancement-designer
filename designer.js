@@ -6,70 +6,8 @@
      * @returns UX Capture configuration array
      */
     function getZones(url) {
-        if (url.startsWith('https://www.exampe.com/')) {
-            return [
-                {
-                    name: 'ux-destination-verified',
-                    label: "Destination Verified",
-                    estimatedLatency: 150,
-                    elements: [
-                        {
-                            label: "Global nav with the logo",
-                            selector: `#logo`,
-                            marks: [
-                                'ux-image-logo-inline',
-                                'ux-image-logo-onload'
-                            ]
-                        },
-                        {
-                            label: "Header",
-                            selector: `h1`,
-                            marks: [
-                                'ux-text-header'
-                            ]
-                        }
-                    ]
-                }, {
-                    name: 'ux-primary-content-displayed',
-                    label: "Primary Content Displayed",
-                    estimatedLatency: 500,
-                    elements: [
-                        {
-                            label: "Biography",
-                            selector: `#content > p`,
-                            marks: [
-                                'ux-text-biography'
-                            ]
-                        }
-                    ]
-                }, {
-                    name: 'ux-primary-action-available',
-                    label: "Primary Action Available",
-                    estimatedLatency: 1500,
-                    elements: [
-                        {
-                            label: "Details link",
-                            selector: `#content > p > a`,
-                            marks: [
-                                'ux-text-details-link',
-                            ]
-                        }
-                    ]
-                }, {
-                    name: 'ux-secondary-content-displayed',
-                    label: "Secondary Content Displayed",
-                    estimatedLatency: 3000,
-                    elements: [
-                        {
-                            label: "Further Information",
-                            selector: `#further-info`,
-                            marks: [
-                                'ux-text-further-info',
-                            ]
-                        }
-                    ]
-                }
-            ];
+        if (window.UXCapture && window.UXCapture.getViewConfig) {
+            return window.UXCapture.getViewConfig();
         }
     }
 
